@@ -1,0 +1,25 @@
+<p>{{ stringInterpoletion }}</p>
+<br />
+<button (click)="processClick('Hello World!')">Botão Teste</button>
+<br />
+<button [disabled]="isDisabled">Botão 2</button>
+<br />
+<button (click)="disableButton()">Botão Teste2</button>
+<br />
+<label>Input Teste
+  <input [(ngModel)]="myBindingProperty" /></label>
+  <label>{{myBindingProperty}}</label>
+<br/>
+
+<div style="margin:20px; border: 3px solid black">
+  <h1 *ngIf="showTitle" [ngStyle]="{'font-weight': 'blod'}">Teste 2</h1>
+  <button (click)="changeTitleDisplayStatus()">Exibir Titulo</button>
+</div>
+
+<div style="margin:20px; border: 3px solid black">
+<ul>
+  <li *ngFor="let item of itens" [ngClass]="item.id % 2 ? 'style-1' : 'style-2'">{{item.description}} - {{item.id}}</li>
+</ul>
+</div>
+
+
