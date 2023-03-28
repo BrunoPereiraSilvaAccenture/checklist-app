@@ -8,6 +8,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -19,7 +21,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatTableModule,
     MatMenuModule,
     MatDividerModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatInputModule
    ],
   exports: [
     MatToolbarModule,
@@ -30,7 +34,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatTableModule,
     MatMenuModule,
     MatDividerModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatInputModule
   ]
 })
 export class MaterialModule { }
