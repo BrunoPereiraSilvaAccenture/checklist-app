@@ -1,1 +1,57 @@
-<p>category works!</p>
+<div>
+
+  <mat-card class="m-20">
+
+    <mat-card-header>
+
+      <mat-card-title>Gerenciar Categorias</mat-card-title>
+
+    </mat-card-header>
+
+
+    <mat-card-content>
+
+      <table mat-table [dataSource]="dataSource" class="w-100">
+
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id. </th>
+          <td mat-cell *matCellDef="let element ;  let i = index"> {{i+1}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Nome </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Ações </th>
+          <td mat-cell *matCellDef="let element">
+
+            <button mat-raised-button color="accent" (click)="editCategory(element)" class="mr-10">Editar</button>
+            <button mat-raised-button color="warn" (click)="deleteCategory(element)">Excluir</button>
+
+          </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+    </mat-card-content>
+
+
+    <mat-card-actions>
+
+      <a mat-raised-button color="primary" [routerLink]="['/']" class="mr-10">Home</a>
+      <a mat-raised-button color="accent (click)="createNewCategory()">Criar Nova Categoria</a>
+
+    </mat-card-actions>
+
+
+  </mat-card>
+
+</div>
