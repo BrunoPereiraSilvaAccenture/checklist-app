@@ -3,6 +3,7 @@ import { CATEGORY_DATA } from './../category/category.component';
 import { Component, OnInit } from '@angular/core';
 import { ChecklistItem } from '../_models/checklist_item';
 import { MatDialog } from '@angular/material/dialog';
+import { ChecklistEditComponent } from '../checklist-edit/checklist-edit.component';
 
 export const CHECKLIST_DATA = [
   {guid:'aaaa-bbbb-cccc-dddd',completed:false, description: 'Ir ao oftamologista', deadline: Date.now(), postDate: Date.now(),
@@ -31,16 +32,24 @@ export class ChecklistComponent implements OnInit{
   }
 
   public createNewItem(){
-    console.log('Criar novo item do checklist clicado!');
+    this.dialog.open(ChecklistEditComponent,{
+      disableClose: true, data: {actionName: 'Criar'}
+    }).afterClosed().subscribe(resp => {
+      console.log('Criar novo item do checklist clicado!');
+    });
   }
 
   public updateCompleteStatus(status: boolean){
     console.log(`Status alterado ${status}`);
   }
 
-  public updateCheclistItem(checklistItem: ChecklistItem)
+  public updateChecklistItem(checklistItem: ChecklistItem)
   {
-    console.log(`Atualizando Item ${checklistItem.description} do Checklist`);
+    this.dialog.open(ChecklistEditComponent,{
+      disableClose: true, data: {updateChecklistItem: checklistItem, actionName: 'Editar'}
+    }).afterClosed().subscribe(resp => {
+      console.log(`Atualizando Item ${checklistItem.description} do Checklist`);
+    });
   }
 
   public deleteCheclistItem(checklistItem: ChecklistItem)

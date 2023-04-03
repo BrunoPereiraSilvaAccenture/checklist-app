@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,8 @@ import { DialogComponent } from './dialog/dialog.component';
 import { CategoryEditComponent } from './category-edit/category-edit.component';
 import { CategoryFormComponent } from './category-form/category-form.component';
 import { ChecklistComponent } from './checklist/checklist.component';
+import { ChecklistEditComponent } from './checklist-edit/checklist-edit.component';
+import { ChecklistFormComponent } from './checklist-form/checklist-form.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ChecklistComponent } from './checklist/checklist.component';
     DialogComponent,
     CategoryEditComponent,
     CategoryFormComponent,
-    ChecklistComponent
+    ChecklistComponent,
+    ChecklistEditComponent,
+    ChecklistFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,9 @@ import { ChecklistComponent } from './checklist/checklist.component';
     MaterialModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'pt-BR'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
